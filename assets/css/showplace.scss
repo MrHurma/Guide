@@ -1,0 +1,94 @@
+.search{
+    padding-top: 100px;
+    @media (max-width: 376px) {
+        max-width: 375px;       
+    }
+    &__wrap{
+        display: flex;
+    }
+    &__sort{
+        border: 1px solid #5252527c;
+        background-color: #5252;
+        margin-right: 50px;
+        padding: 10px 25px 10px 5px;
+        height: max-content;
+        @media (max-width: 376px) {
+            padding: 0;
+            margin-right: 10px;
+        }
+        &_list{
+            font-weight: 500;
+        }
+        &_item{
+            margin-bottom: 10px;
+            padding: 10px;
+            transition: all .4s ease;
+            @media (max-width: 376px) {
+                font-size: 12px;
+            }
+            &:hover{
+                cursor: pointer;
+                color: #fff;
+                background-color: #525252;
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__search_box{
+        display: flex;
+        flex-direction: column;
+    }
+    &__input{
+        padding-bottom: 25px;
+        &_search{
+            padding: 6px;
+            @media (max-width: 376px) {
+                width: 200px;
+            }
+        }
+    }
+    &__img{
+        width: 300px;
+        border-radius: 10px;
+        @media (max-width: 376px) {
+            width: 150px;
+        }
+    }
+    &__box{
+        display: flex;
+        max-width: 750px;
+        border: 1px solid #525252;
+        text-align: center;
+        padding: 3px;
+        border-radius: 10px;
+        align-items: center;
+        margin-bottom: 25px;
+        @media (max-width: 376px) {
+            max-width: 200px;
+            flex-direction: column;
+        }
+    }
+    &__text_box{
+        display: flex;
+        flex-direction: column;
+    }
+    &__title{
+        font-weight: 600;
+        font-style: 16px;
+        @media (max-width: 376px) {
+            font-size:11px;
+        }
+    }
+    &__text{
+        font-weight: 400;
+        font-size: 13px;
+        @media (max-width: 376px) {
+            font-size: 8px;
+        }
+    }
+}
+.sort{
+    color: #5252527a;
+}

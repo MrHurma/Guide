@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш путеводитель по городу</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/contacts.css">
+</head>
+<body class="body">
+    <header class="header">
+        <nav class="header__nav">
+            <a href="./index.html">
+                <img src="./assets/img/logo.png" alt="logo" class="header__img">
+            </a>
+            <a href="https://yandex.ru/maps/-/CDXXAOi2" target="_blank">
+                <img src="./assets/img/youLeft.png" alt="you" class="header__you header__you_1">
+                <img src="./assets/img/way.png" alt="way" class="header__way">
+                <img src="./assets/img/youRight.png" alt="you" class="header__you header__you_2">
+            </a>
+            <div class="burger__box">
+                <div class="burger" id="burger" onclick="burgerClick()">
+                    <li class="burger__line_1 burger__line"></li>
+                    <li class="burger__line_2 burger__line"></li>
+                    <li class="burger__line_3 burger__line"></li>
+                </div>
+                <div class="burger__links burger__a" id="menu">
+                    <a href="./showplace.html" class="burger__link">Достопримечательности города</a>
+                    <a href="#" class="burger__link">Контакты</a>
+                    <a href="#" class="burger__btn burger__link">Вход</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="contacts">
+            <div class="contacts__wrap">
+                <div class="contacts__box">
+                    <h3 class="contacts__title">Часы работы</h3>
+                    <a href="#" class="contacts__text">С 8:00 до 00:00 по МСК</a>
+                </div>
+                <div class="contacts__box">
+                    <h3 class="contacts__title">Телефоны поддержки</h3>
+                    <a href="#" class="contacts__text">89507179772</a>
+                    <a href="#" class="contacts__text">89938873012</a>
+                </div>
+                <div class="contacts__box">
+                    <h3 class="contacts__title">По оставшимся вопросам:</h3>
+                    <button class="contacts__btn" onclick="openn()">Нажмите сюда</button>
+                </div>
+            </div>
+            <div class="modal" id="modal">
+                <div class="modal__active">
+                    <div class="modal__close">
+                        <img src="./assets/img/close.png" style="width: 20px;" onclick="Close()">
+                    </div>
+                    <div class="modal__window">
+                        <label for="modal_fio" class="modal_label">Как к вам можно обращаться?</label>
+                        <input type="text" name="modal_fio" class="modal__input">
+                        <label for="modal_tel" class="modal_label">Номер телефона</label>
+                        <input type="tel" name="modal_tel" class="modal__input">
+                        <label for="modal_email" class="modal_label">Адрес электронной почты</label>
+                        <input type="email" name="modal_email" class="modal__input">
+                        <label for="modal_text" class="modal_label">Ваш вопрос</label>
+                        <input type="text" name="modal_text" class="modal__input">
+                        <input type="button" value="Отправить" onclick="Close()" class="modal__input">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer" id="footer">
+        <div class="footer__wrap">
+            <div class="footer__about footer__info_box">
+                <p class="footer__title">О нас</p>
+                <a href="#footer" class="footer__link footer__icon_vk">ВКонтакте</a>
+                <a href="#footer" class="footer__link footer__icon_tg">Telegram</a>
+                <a href="#footer" class="footer__link footer__icon_yt">YouTube</a>
+            </div>
+            <div class="footer__contacts footer__info_box">
+                <p class="footer__title">Контакты</p>
+                <a href="#footer" class="footer__link">8(950)717-97-72</a>
+                <a href="#footer" class="footer__link">belvad96@gmail.com</a>
+            </div>
+            <div class="footer__rules footer__info_box">
+                <p class="footer__title">Правила</p>
+                <a href="#footer" class="footer__link">Политика конфиденциальности</a>
+            </div>
+            <div class="footer__email footer__info_box">
+                <div class="footer__email_title">
+                    <p class="footer__title">Подписка на рассылку</p>
+                </div>
+                <div class="footer__email_input">
+                    <input type="email" class="footer__input_email" placeholder="Ваш E-mail адрес">
+                    <input type="button" class="footer__input_btn" value="Подписаться">
+                </div>
+            </div>
+        </div>
+        <div class="footer__info">
+            <p class="footer__info_text">©Все права защищены</p>
+            <p class="footer__info_text">OOO "MrHurma31"</p>
+        </div>
+    </footer>
+</body>
+<script src="./assets/scripts/burger.js"></script>
+<script src="./assets/scripts/contacts.js"></script>
+</html>
