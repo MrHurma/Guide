@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш путеводитель по городу</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./showplace.html">
+</head>
+<body class="body">
+    <header class="header">
+        <nav class="header__nav">
+            <a href="./index.html">
+                <img src="./assets/img/logo.png" alt="logo" class="header__img">
+            </a>
+            <a href="https://yandex.ru/maps/-/CDXXAOi2" target="_blank">
+                <img src="./assets/img/youLeft.png" alt="you" class="header__you header__you_1">
+                <img src="./assets/img/way.png" alt="way" class="header__way">
+                <img src="./assets/img/youRight.png" alt="you" class="header__you header__you_2">
+            </a>
+            <div class="burger__box">
+                <div class="burger" id="burger" onclick="burgerClick()">
+                    <li class="burger__line_1 burger__line"></li>
+                    <li class="burger__line_2 burger__line"></li>
+                    <li class="burger__line_3 burger__line"></li>
+                </div>
+                <div class="burger__links burger__a" id="menu">
+                    <a href="./showplace.html" class="burger__link">Достопримечательности города</a>
+                    <a href="./contacts.html" class="burger__link">Контакты</a>
+                    <a href="#" class="burger__btn burger__link">Вход</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="slider">
+            <div class="slider__wrap">
+                <h1 class="slider__title"><a href="https://ru.wikipedia.org/wiki/Шебекино" class="shebekino" target="_blank">Шебекино</a> - Город Герой</h1>
+                <div class="slider__box">
+                    <img src="./assets/img/naber.jpg" alt="nabrezjnaya" class="slider__img slider__img_1">
+                    <img src="./assets/img/Dk.jpg" alt="Dk" class="slider__img slider__img_2">
+                    <img src="./assets/img/naber2.jpg" alt="naberezjnaya" class="slider__img slider__img_3">
+                    <img src="./assets/img/neSklon.jpg" alt="neSklonyaetsya" class="slider__img slider__img_4">
+                    <img src="./assets/img/Park.jpg" alt="Park" class="slider__img slider__img_5">
+                </div>
+                <button class="slider__btn_left" onclick="replacePhotoMin()">
+                    <img src="./assets/img/arrowLeft.svg" alt="arrow">
+                </button>
+                <button class="slider__btn_right">
+                    <img src="./assets/img/arrowRight.svg" alt="arrow" onclick="replacePhoto()">
+                </button>
+            </div>
+        </section>
+        <section class="post">
+            <h1 class="post__title">Шебекино</h1>
+            <div class="post-1__wrap">
+                <div class="post-1__block">
+                    <p class="post-1__subtitle post__subtitle">На самом деле в Шебекино не так много мест которые можно посетить, но все они красивые.</p>
+                    <p class="post-1__text post__text">Первое место которое я советую посетить - Набережная, это красивое живописное место особенно зимой когда ее украшают различными новогодними атрибутами.</p>
+                </div>
+                <img src="./assets/img/naberOpisanie.png" alt="naber" class="post-1__img">
+            </div>
+            <div class="post-2__wrap">
+                <p class="post-2__subtitle post__subtitle">Давайте немного больше узнаем об этом замечательном городе</p>
+                <div class="post-2__block">
+                    <div class="post-2__box">
+                        <p class="post-2__text post__text">Шебекино имеет довольно долгую и интересную историю, например он старше чем Краснодар(1793), Екатеринбург(1723), Челябинск(1736). Сам город появился в 1713 году как слобода Шибекина. Название получил по фамилии местного администратора подполковника И. Д. Шибеко, руководившего заселением этой слободы. Позже название было искажено в Шебекино. С 1938 года имеет статус города.</p>
+                        <img src="./assets/img/EllipseRed.png" alt="circle" class="post-2__circle_red">
+                        <img src="./assets/img/EllipseGreen.png" alt="circle" class="post-2__circle_green">
+                        <img src="./assets/img/EllipseYellow.png" alt="circle" class="post-2__circle_yellow">
+                        <img src="./assets/img/EllipseBlue.png" alt="cirlce" class="post-2__circle_blue post-2__circle_blue-1">
+                    </div>
+                    <img src="./assets/img/shebekino.png" alt="shebekino" class="post-2__img">
+                    <div class="post-2__circle">
+                        <img src="./assets/img/EllipseBlue.png" alt="circle" class="post-2__circle_blue post-2__circle_blue-2">
+                    </div>
+                </div>
+            </div>
+            <div class="post-3">
+                <div class="post-3__wrap">
+                    <p class="post__text post-3__text">Второе место про которое хочется рассказать это территория рядом с “ЦКР” на которой присутствую пляж, различные забегаловки, скейт площадка, места отдыха, сцена для проведения различных мероприятий и детская площадка, также можно арендовать самокат и покататься по красивому парку.</p>
+                    <img src="./assets/img/naber2.jpg" alt="naber" class="post-3__img">
+                </div>
+            </div>
+        </section>
+        <section class="maps">
+            <div class="maps__wrap">
+                <div class="maps__title_box">
+                    <h2 class="maps__title">Основные карты города</h2>
+                </div>
+                <div class="maps__nav">
+                    <button onclick="main()" class="maps__btn">Основная карта</button>
+                    <button onclick="cafe()" class="maps__btn">Где поесть</button>
+                    <button onclick="fun()" class="maps__btn">Развлечения</button>
+                    <button onclick="mall()" class="maps__btn">Торговые центры</button>
+                </div>
+                <div class="maps__block">
+                    <div class="maps__main maps__map" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/20196/shebekino/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Шебекино</a><a href="https://yandex.ru/maps/geo/shebekino/53056797/?ll=36.947560%2C50.405076&utm_medium=mapframe&utm_source=maps&z=12.2" style="color:#eee;font-size:12px;position:absolute;top:14px;">Шебекино — карта, что посмотреть, фото, как добраться, координаты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=36.947560%2C50.405076&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1MzA1Njc5NxJH0KDQvtGB0YHQuNGPLCDQkdC10LvQs9C-0YDQvtC00YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCo0LXQsdC10LrQuNC90L4iCg1shBNCFQ2eSUI%2C&utm_source=share&z=12.2" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                    <div class="maps__cafe maps__map" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/20196/shebekino/search/%D0%B3%D0%B4%D0%B5%20%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">где поесть в Шебекино</a><a href="https://yandex.ru/maps/20196/shebekino/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Шебекино</a><iframe src="https://yandex.ru/map-widget/v1/?display-text=%D0%B3%D0%B4%D0%B5%20%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C&ll=36.941309%2C50.403920&mode=search&sll=36.941309%2C50.403920&sspn=0.325266%2C0.121024&text=%D0%B3%D0%B4%D0%B5%20%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C&utm_source=share&z=12.6" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                    <div class="maps__fun maps__map" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/20196/shebekino/search/%D0%A0%D0%B0%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Развлечения в Шебекино</a><a href="https://yandex.ru/maps/20196/shebekino/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Шебекино</a><iframe src="https://yandex.ru/map-widget/v1/?display-text=%D0%A0%D0%B0%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F&ll=36.928313%2C50.402975&mode=search&sctx=ZAAAAAgBEAAaKAoSCWGJB5RNeUJAEU6c3O9QNElAEhIJ6q9XWHA%2F1D8Ron2s4Lchvj8iBgABAgMEBSgKOABA5J0BSAFqAnJ1nQHNzMw9oAEAqAEAvQHTsvc7wgFmifPFhwS%2Fi%2BqwXNfEvdc0ipLK6VW11oDgsQGy9MikmwKP%2FZXh1gWWrZfjft%2F7uZiRAY%2FMpeOlBrKK8cLUAoeoj66zBsjkqJ29Bou%2Flc6JAouP7qWsA6bkgN36BcGJibq1Ao3g%2BPY3ggIW0KDQsNC30LLQu9C10YfQtdC90LjRj4oCywExODQxMDYzNzIkMTg0MTA2MzU0JDE4NDEwNjM3OCQ1NjM5NjcxMDg5NSQ4ODg0NDU3NTY5MyQxODQxMDYzNTAkMTg0MTA2MzYwJDE4NDEwNjM2OCQxODQxMDYzODAkMjE1MDY3MjA2Mjc3JDE4NDEwNTg5NCQxODQxMDU4NzIkMTg0MTA1ODY4JDE4NDEwNjM1OCQzNDAyMzg5NDM5NyQxOTI0NDgwOTI4MyQxODQxMDYzODQkNzgwOTI4MzM4JDE5MTQ3MjY4OTY3MpICAJoCDGRlc2t0b3AtbWFwcw%3D%3D&sll=36.928313%2C50.402975&sspn=0.213113%2C0.079296&text=%D0%A0%D0%B0%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F&utm_source=share&z=13.21" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                    <div class="maps__mall maps__map" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/20196/shebekino/search/%D0%A2%D0%BE%D1%80%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%86%D0%B5%D0%BD%D1%82%D1%80%D1%8B/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Торговые центры в Шебекино</a><a href="https://yandex.ru/maps/20196/shebekino/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Шебекино</a><iframe src="https://yandex.ru/map-widget/v1/?display-text=%D0%A2%D0%BE%D1%80%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%86%D0%B5%D0%BD%D1%82%D1%80%D1%8B&ll=36.909781%2C50.401878&mode=search&sctx=ZAAAAAgBEAAaKAoSCVSsGoS5c0JAEftd2JqtNElAEhIJtwn3yrxVrz8R3dCUnX5Qlz8iBgABAgMEBSgKOABA5J0BSAFqAnJ1nQHNzMw9oAEAqAEAvQFcd%2F7WwgEkqevGyu4ExoTVyO8Fgfbz6IUCyJSJvfoG5anXktsBw%2Br%2Fg4UGggId0KLQvtGA0LPQvtCy0YvQtSDRhtC10L3RgtGA0YuKAgkxODQxMDgwODOSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=36.909781%2C50.401878&sspn=0.163764%2C0.060935&text=%D0%A2%D0%BE%D1%80%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%86%D0%B5%D0%BD%D1%82%D1%80%D1%8B&utm_source=share&z=13.59" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="main__line"></div>
+    <footer class="footer" id="footer">
+        <div class="footer__wrap">
+            <div class="footer__about footer__info_box">
+                <p class="footer__title">О нас</p>
+                <a href="#footer" class="footer__link footer__icon_vk">ВКонтакте</a>
+                <a href="#footer" class="footer__link footer__icon_tg">Telegram</a>
+                <a href="#footer" class="footer__link footer__icon_yt">YouTube</a>
+            </div>
+            <div class="footer__contacts footer__info_box">
+                <p class="footer__title">Контакты</p>
+                <a href="#footer" class="footer__link">8(950)717-97-72</a>
+                <a href="#footer" class="footer__link">belvad96@gmail.com</a>
+            </div>
+            <div class="footer__rules footer__info_box">
+                <p class="footer__title">Правила</p>
+                <a href="#footer" class="footer__link">Политика конфиденциальности</a>
+            </div>
+            <div class="footer__email footer__info_box">
+                <div class="footer__email_title">
+                    <p class="footer__title">Подписка на рассылку</p>
+                </div>
+                <div class="footer__email_input">
+                    <input type="email" class="footer__input_email" placeholder="Ваш E-mail адрес">
+                    <input type="button" class="footer__input_btn" value="Подписаться">
+                </div>
+            </div>
+        </div>
+        <div class="footer__info">
+            <p class="footer__info_text">©Все права защищены</p>
+            <p class="footer__info_text">OOO "MrHurma31"</p>
+        </div>
+    </footer>
+</body>
+<script src="./assets/scripts/burger.js"></script>
+<script src="./assets/scripts/slider.js"></script>
+<script src="./assets/scripts/maps.js"></script>
+</html>

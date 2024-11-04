@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш путеводитель по городу</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/showplace.css">
+</head>
+<body class="body">
+    <header class="header">
+        <nav class="header__nav">
+            <a href="./index.html">
+                <img src="./assets/img/logo.png" alt="logo" class="header__img">
+            </a>
+            <a href="https://yandex.ru/maps/-/CDXXAOi2" target="_blank">
+                <img src="./assets/img/youLeft.png" alt="you" class="header__you header__you_1">
+                <img src="./assets/img/way.png" alt="way" class="header__way">
+                <img src="./assets/img/youRight.png" alt="you" class="header__you header__you_2">
+            </a>
+            <div class="burger__box">
+                <div class="burger" id="burger" onclick="burgerClick()">
+                    <li class="burger__line_1 burger__line"></li>
+                    <li class="burger__line_2 burger__line"></li>
+                    <li class="burger__line_3 burger__line"></li>
+                </div>
+                <div class="burger__links burger__a" id="menu">
+                    <a href="./showplace.html" class="burger__link">Достопримечательности города</a>
+                    <a href="./contacts.html" class="burger__link">Контакты</a>
+                    <a href="#" class="burger__btn burger__link">Вход</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="search">
+            <div class="search__wrap">
+                <div class="search__sort">
+                    <ul class="search__sort_list">
+                        <li class="search__sort_item search__sort_item-1" onclick="clickPark()">Парки</li>
+                        <li class="search__sort_item search__sort_item-2" onclick="clickPamyat()">Памятники</li>
+                        <li class="search__sort_item search__sort_item-3" onclick="clickMuseam()">Музеи</li>
+                        <li class="search__sort_item search__sort_item-4" onclick="clickHram()">Храмы</li>
+                        <li class="search__sort_item search__sort_item-5" onclick="clickPlace()">Исторические места</li>
+                        <li class="search__sort_item search__sort_item-6" onclick="Clear()">Очистить</li>
+                    </ul>
+                </div>
+                <div class="search__search_box">
+                    <div class="search__input">
+                        <input type="search" name="search" size="40px" placeholder="Введите название" class="search__input_search" id="search">
+                    </div>
+                    <div class="search__block">
+                        <div class="search__box" id="card_1">
+                            <div class="search__img_box">
+                                <img src="./assets/img/shibeko.jpg" alt="Shibeko" class="search__img">
+                            </div>
+                            <div class="search__text_box">
+                                <p class="search__title">Памятник основателю города Ивану Шибеко</p>
+                                <p class="search__text">Памятник основателю города появился в Шебекинo в 2016 году. Бронзовую скульптуру создал член Союза художников России Дмитрий Горин. Фигура высотой 2,5 метра установлена на гранитном постаменте. По словам автора, это памятник не только конкретному человеку, но и всей Петровской эпохе – людям, которые осваивали новые земли, строили и созидали.</p>
+                                <p class="sort sort__pamyat">Памятники</p>
+                            </div>
+                        </div>
+                        <div class="search__box" id="card_2">
+                            <div class="search__img_box">
+                                <img src="./assets/img/dom.jpg" alt="dom" class="search__img">
+                            </div>
+                            <div class="search__text_box">
+                                <p class="search__title">Усадьба Александра Ребиндера</p>
+                                <p class="search__text">Дома Ребиндеров – Александра, Николая и Марии – находились в самом центре города. Дом Александра был построен в 1912 году по проекту шебекинского архитектора Н. Михайлова. Двухэтажное строение в стиле модерн было очень скромным с виду – Ребиндеры славились своей экономностью и богатством не кичились. Однако при всей внешней скромности дом построен добротно: толстые стены, внутри которых проходили трубы с горячей водой, система кондиционирования.</p>
+                                <p class="sort sort__places">Исторические места</p>
+                            </div>
+                        </div>
+                        <div class="search__box" id="card_3">
+                            <div class="search__img_box">
+                                <img src="./assets/img/park2.jpg" alt="park" class="search__img">
+                            </div>
+                            <div class="search__text_box">
+                                <p class="search__title">Шебекинский парк культуры и отдыха</p>
+                                <p class="search__text">Шебекинский парк — это живописное место, расположенное в городе Шебекино Белгородской области. Парк славится своей зеленой зоной, где растут разнообразные деревья и кустарники, создающие атмосферу спокойствия и уюта. Здесь можно найти красивые аллеи для прогулок, уютные лавочки для отдыха и детские площадки для развлечения малышей. Парк часто становится местом проведения различных мероприятий и праздников, что добавляет ему особый шарм.</p>
+                                <p class="sort sort__parks">Парки</p>
+                            </div>
+                        </div>
+                        <div class="search__box" id="card_4">
+                            <div class="search__img_box">
+                                <img src="./assets/img/usip.jpg" alt="Усыпальница" class="search__img">
+                            </div>
+                            <div class="search__text_box">
+                                <p class="search__title">Усыпальница Елизаветы и Николая Ребиндеров</p>
+                                <p class="search__text">Елизавета Ребиндер была попечительницей Волчанского и Верхнеписаревского приютов. В 1916 году после одного из визитов она заразилась там скарлатиной и умерла. Ее похоронили в специально возведенной усыпальнице недалеко от дома. В 1918 году там же были захоронены и останки Николая, которого вместе с братом Александром и Николаем Мансуровым расстреляли красноармейцы.</p>
+                                <p class="sort sort__places">Исторические места</p>
+                            </div>
+                        </div>
+                        <div class="search__box" id="card_5">
+                            <div class="search__img_box">
+                                <img src="./assets/img/hram.jfif" alt="dom" class="search__img">
+                            </div>
+                            <div class="search__text_box">
+                                <p class="search__title">Храм иконы Божией Матери</p>
+                                <p class="search__text">Храм иконы Божией Матери «Всех скорбящих Радость» в Шебекино — центральный храм города из вновь построенных. 12 марта 2004 года архиепископ Белгородский и Старооскольский Иоанн освятил закладной камень в основании храма. Тогда же, через жребий, который после молебна вытащила маленькая девочка, было определено название храма — в честь иконы Божией Матери «Всех скорбящих Радость». Среди святынь храма исключительное место занимает древний образ Богородицы «Всех скорбящих Радость». Этот образ был подарен приходу при освящении храма.</p>
+                                <p class="sort sort__hram">Храмы</p>
+                            </div>
+                        </div>
+                        <div class="search__box" id="card_6">
+                            <div class="search__img_box">
+                                <img src="./assets/img/domMansur.jpg" alt="Mansurovi" class="search__img">
+                            </div>
+                            <div class="search__text_box">
+                                <p class="search__title">Дом Мансуровых</p>
+                                <p class="search__text">Недалеко от дома Александра Ребиндера стояла усадьба и его сестры. Большую часть года она пустовала – Мария вместе с мужем Николаем Мансуровым жила в Харькове, а в Шебекино приезжала только на лето. Дом Мансуровых состоял из трех блоков: по краям здание было одноэтажное, а в середине двухэтажным. Сохранилась только центральная его часть, сейчас это один из корпусов средней школы № 3.</p>
+                                <p class="sort sort__places">Исторические места</p>
+                            </div>
+                        </div>
+                        <div class="search__box" id="card_7">
+                            <div class="search__img_box">
+                                <img src="./assets/img/pamyatnik.jpg" alt="Rebinder" class="search__img">
+                            </div>
+                            <div class="search__text_box">
+                                <p class="search__title">Памятник Александру Ребиндеру</p>
+                                <p class="search__text">Перед зданием на площади химиков где раньше была контора сахарного завода Ребиндеров установлен памятник Александру Ребиндеру, который создал Виктор Присекин. Скульптуру открыли в сентябре 2011 года. Трехметровую бронзовую фигуру отлили на воронежском заводе «Вера».</p>
+                                <p class="sort sort__pamyat">Памятники</p>
+                            </div>
+                        </div>
+                        <div class="search__box" id="card_8">
+                            <div class="search__img_box">
+                                <img src="./assets/img/museam.jpg" alt="museam" class="search__img">
+                            </div>
+                            <div class="search__text_box">
+                                <p class="search__title">Шебекинский историко-художественный музей</p>
+                                <p class="search__text">Музей открылся в ноябре 1986 года. Сначала это был выставочный зал, его первыми экспонатами стали картины, которые подарили почетные граждане города Иван и Раиса Выродовы. Спустя год учреждению присвоили статус краеведческого. В музее пять залов, экспонаты которых рассказывают об истории края с древнейших времен. В витринах можно увидеть кости мамонта и каменные топоры, предметы из древних захоронений и исчезнувших городов, оружие скифов и славян, старинные деньги и награды.</p>
+                                <p class="sort sort__museam">Музеи</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="main__line"></div>
+    <footer class="footer" id="footer">
+        <div class="footer__wrap">
+            <div class="footer__about footer__info_box">
+                <p class="footer__title">О нас</p>
+                <a href="#footer" class="footer__link footer__icon_vk">ВКонтакте</a>
+                <a href="#footer" class="footer__link footer__icon_tg">Telegram</a>
+                <a href="#footer" class="footer__link footer__icon_yt">YouTube</a>
+            </div>
+            <div class="footer__contacts footer__info_box">
+                <p class="footer__title">Контакты</p>
+                <a href="#footer" class="footer__link">8(950)717-97-72</a>
+                <a href="#footer" class="footer__link">belvad96@gmail.com</a>
+            </div>
+            <div class="footer__rules footer__info_box">
+                <p class="footer__title">Правила</p>
+                <a href="#footer" class="footer__link">Политика конфиденциальности</a>
+            </div>
+            <div class="footer__email footer__info_box">
+                <div class="footer__email_title">
+                    <p class="footer__title">Подписка на рассылку</p>
+                </div>
+                <div class="footer__email_input">
+                    <input type="email" class="footer__input_email" placeholder="Ваш E-mail адрес">
+                    <input type="button" class="footer__input_btn" value="Подписаться">
+                </div>
+            </div>
+        </div>
+        <div class="footer__info">
+            <p class="footer__info_text">©Все права защищены</p>
+            <p class="footer__info_text">OOO "MrHurma31"</p>
+        </div>
+    </footer>
+</body>
+<script src="./assets/scripts/burger.js"></script>
+<script src="./assets/scripts/sort.js"></script>
+</html>
