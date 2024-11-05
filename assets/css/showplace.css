@@ -47,6 +47,7 @@
 .search__search_box {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .search__input {
   padding-bottom: 25px;
@@ -105,6 +106,24 @@
   .search__text {
     font-size: 8px;
   }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+.pagination__btn {
+  border: 0;
+  padding: 5px;
+}
+
+.page__num {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.page__num:last-child {
+  padding-left: 0;
 }
 
 .sort {
