@@ -91,6 +91,7 @@ function showPage(page) {
     });
     updatePagination();
 }
+showPage(currentPage)
 function updatePagination() {
     document.getElementById('page__numbers').innerHTML = '';
     for (let i = 1; i <= totalPages; i++) {
