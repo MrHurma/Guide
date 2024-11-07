@@ -81,7 +81,7 @@ document.getElementById('search').addEventListener('input', function() {
     });
 });
 
-const itemsPerPage = 2;
+const itemsPerPage = 4;
 const items = document.querySelectorAll('.search__box');
 const totalPages = Math.ceil(items.length / itemsPerPage);
 let currentPage = 1;
