@@ -81,7 +81,7 @@ document.getElementById('search').addEventListener('input', function() {
     });
 });
 
-const itemsPerPage = 4;
+const itemsPerPage = 2;
 const items = document.querySelectorAll('.search__box');
 const totalPages = Math.ceil(items.length / itemsPerPage);
 let currentPage = 1;
@@ -120,3 +120,10 @@ document.getElementById('next').addEventListener('click', () => {
         showPage(currentPage);
     }
 });
+
+const card = document.querySelector('.search__box');
+function moreInfo(){
+    card.addEventListener('click', function(){
+        card.classList.toggle('search__box-show')
+    })
+}
