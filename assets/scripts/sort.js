@@ -1,5 +1,5 @@
 const search = document.querySelectorAll('.search__sort_item')
-const sort = document.querySelectorAll('.sort')
+let sort = document.querySelectorAll('.sort')
 
 const itemsPerPage = 4;
 const items = document.querySelectorAll('.search__box');
@@ -94,3 +94,30 @@ document.getElementById('search').addEventListener('input', function() {
         }
     });
 });
+const gui = 'https://672cae281600dda5a9f974a0.mockapi.io/cards/';
+let request = new XMLHttpRequest();
+let titleSrch = document.querySelectorAll('.search__title');
+let textSrch = document.querySelectorAll('.search__text');
+request.open("GET", gui);
+request.responseType = "json";
+
+request.onload = function () {
+    const bam = textContent = request.response;
+    let o = 0;
+    titleSrch.forEach(titleSrch =>{
+        titleSrch.innerHTML = bam[o].title
+        o += 1
+    });
+    o = 0
+    textSrch.forEach(textSrch =>{
+        textSrch.innerHTML = bam[o].text
+        o += 1
+    });
+    o = 0
+    sort.forEach(sort =>{
+        sort.innerHTML = bam[o].type
+        o += 1
+    });
+};
+
+request.send();
