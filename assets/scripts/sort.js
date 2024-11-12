@@ -98,6 +98,7 @@ const gui = 'https://672cae281600dda5a9f974a0.mockapi.io/cards/';
 let request = new XMLHttpRequest();
 let titleSrch = document.querySelectorAll('.search__title');
 let textSrch = document.querySelectorAll('.search__text');
+let imgSrch = document.querySelectorAll('.search__img')
 request.open("GET", gui);
 request.responseType = "json";
 
@@ -118,6 +119,11 @@ request.onload = function () {
         sort.innerHTML = bam[o].type
         o += 1
     });
+    o = 0
+    imgSrch.forEach(imgSrch =>{
+        imgSrch.src = bam[o].img
+        o += 1
+    })
 };
 
 request.send();
