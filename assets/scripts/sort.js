@@ -30,13 +30,13 @@ function updatePagination() {
 }
 document.getElementById('prev').addEventListener('click', () => {
     if (currentPage > 1) {
-        currentPage--;
+        currentPage-=1;
         showPage(currentPage);
     }
 });
 document.getElementById('next').addEventListener('click', () => {
     if (currentPage < totalPages) {
-        currentPage++;
+        currentPage+=1;
         showPage(currentPage);
     }
 });
