@@ -193,6 +193,7 @@ li{
 .slider{
     padding-bottom: 100px;
     animation: anim 1s ease both;
+    transition: all 0.4s linear;
     &__wrap{
         position: relative;
     }
@@ -213,7 +214,7 @@ li{
     }
     &__box{
         display: flex;
-        transition: all 1s ease-out;
+        transition: all 1s linear;
     }
     &__btn{
         &_left{
@@ -260,16 +261,7 @@ li{
         &_1{
             display: flex;
         }
-        &_2{
-            display: none;
-        }
-        &_3{
-            display: none;
-        }
-        &_4{
-            display: none;
-        }
-        &_5{
+        &_2, &_3, &_4, &_5{
             display: none;
         }
     }
@@ -586,10 +578,6 @@ li{
         }
     }
 }
-#wrapper{
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
 #main_preloader{
     position: fixed;
     width: 100%;
@@ -603,7 +591,7 @@ li{
 }
 .loader{
     border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db; 
+    border-top: 8px solid #3498db;
     border-radius: 50%;
     width: 60px;
     height: 60px;

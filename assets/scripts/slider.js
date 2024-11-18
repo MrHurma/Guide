@@ -16,3 +16,7 @@ function replacePhotoMin(){
     if(ind < 0){ind = 4}
     allImg[ind].style.display = 'block'
 }
+
+setInterval(function(){
+    replacePhoto()
+}, 10000);
