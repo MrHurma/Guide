@@ -125,5 +125,4 @@ request.onload = function () {
         o += 1
     })
 };
-
 request.send();

@@ -1,5 +1,6 @@
 let ind = 0
 const allImg = document.querySelectorAll('.slider__img')
+const slider = document.getElementById('slider')
 function replacePhoto(){
     allImg.forEach(allImg =>{
         allImg.style.display = 'none'
@@ -17,6 +18,14 @@ function replacePhotoMin(){
     allImg[ind].style.display = 'block'
 }
 
-setInterval(function(){
-    replacePhoto()
-}, 10000);
+function set(){
+    interval = setInterval(function(){
+        replacePhoto();
+    }, 10000);
+};
+function stop(){
+    clearInterval(interval)
+};
+slider.addEventListener('mouseenter', stop)
+slider.addEventListener('mouseleave', set)
+set()
