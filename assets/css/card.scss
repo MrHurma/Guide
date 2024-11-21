@@ -1,0 +1,38 @@
+.card{
+    display: flex;
+    padding-bottom: 100px;
+    &__img_block{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-height: 650px;
+        margin-right: 13px;
+    }
+    &__img{
+        width: auto;
+        max-height: 350px;
+        margin-bottom: 25px;
+        border-radius: 15px;
+    }
+    &__title{
+        padding-bottom: 25px;
+    }
+    &__box{
+        display: flex;
+    }
+    &__text{
+        line-height: 1.5;
+        font-family: MontserratItalic;
+    }
+    &__adress_box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 15px;
+    }
+    &__map{
+        width: auto;
+        height: 250px;
+    }
+
+}
