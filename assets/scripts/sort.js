@@ -1,3 +1,26 @@
+const gui = 'https://672cae281600dda5a9f974a0.mockapi.io/cards/';
+let request = new XMLHttpRequest();
+request.open("GET", gui);
+request.responseType = "json";
+
+request.onload = function () {
+    const bam = textContent = request.response;
+    let o = 0;
+    items.forEach((items) => {
+        items.innerHTML = `
+        <div class="search__img_box">
+            <img src="${bam[o].img}" alt="" class="search__img">
+        </div>
+        <div class="search__text_box">
+            <h3 class="search__title">${bam[o].title}</h3>
+            <p class="search__text">${bam[o].text}</p>
+            <p class="sort">${bam[o].type}</p>
+        </div>`;
+        o++;
+    })
+};
+request.send();
+
 const search = document.querySelectorAll('.search__sort_item')
 let sort = document.querySelectorAll('.sort')
 
@@ -40,48 +63,27 @@ document.getElementById('next').addEventListener('click', () => {
         showPage(currentPage);
     }
 });
-
+sort = document.querySelectorAll('.sort')
 for(let i = 0; i < search.length; i++) {
     search[i].addEventListener("click", function() {
-        if(search[i].textContent == 'Парки'){
-            sort.forEach(sort => {
-                sort.parentElement.parentElement.style.display = 'none'
-            })
-            document.querySelectorAll('.sort__parks').forEach(sort => sort.parentElement.parentElement.style.display = 'block')
-        }
-        if(search[i].textContent == 'Памятники'){
-            sort.forEach(sort => {
-                sort.parentElement.parentElement.style.display = 'none'
-            })
-            document.querySelectorAll('.sort__pamyat').forEach(sort => sort.parentElement.parentElement.style.display = 'block')
-        }
-        if(search[i].textContent == 'Музеи'){
-            sort.forEach(sort => {
-                sort.parentElement.parentElement.style.display = 'none'
-            })
-            document.querySelectorAll('.sort__museam').forEach(sort => sort.parentElement.parentElement.style.display = 'block')
-        }
-        if(search[i].textContent == 'Храмы'){
-            sort.forEach(sort => {
-                sort.parentElement.parentElement.style.display = 'none'
-            })
-            document.querySelectorAll('.sort__hram').forEach(sort => sort.parentElement.parentElement.style.display = 'block')
-        }
-        if(search[i].textContent == 'Исторические места'){
-            sort.forEach(sort => {
-                sort.parentElement.parentElement.style.display = 'none'
-            })
-            document.querySelectorAll('.sort__places').forEach(sort => sort.parentElement.parentElement.style.display = 'block')
-        }
-        if(search[i].textContent == 'Очистить'){
-            sort.forEach(sort => {
-                sort.parentElement.parentElement.style.display = 'block'
-                showPage(currentPage)
-            })
+        const text = search[i].textContent;
+        items.forEach(card => {
+            card.style.display = 'none';
+        });
+        if (text === 'Очистить') {
+            items.forEach(card => {
+                card.style.display = 'flex';
+            });
+        } else {
+            items.forEach(card => {
+                const sortText = card.querySelector('.sort').textContent;
+                if (sortText === text) {
+                    card.style.display = 'flex';
+                }
+            });
         }
     });
 }
-
 document.getElementById('search').addEventListener('input', function() {
     const searchTerm = this.value.toLowerCase();
     const cards = document.querySelectorAll('.search__box');
@@ -94,25 +96,3 @@ document.getElementById('search').addEventListener('input', function() {
         }
     });
 });
-const gui = 'https://672cae281600dda5a9f974a0.mockapi.io/cards/';
-let request = new XMLHttpRequest();
-request.open("GET", gui);
-request.responseType = "json";
-
-request.onload = function () {
-    const bam = textContent = request.response;
-    let o = 0;
-    items.forEach((items) => {
-        items.innerHTML = `
-        <div class="search__img_box">
-            <img src="${bam[o].img}" alt="" class="search__img">
-        </div>
-        <div class="search__text_box">
-            <h3 class="search__title">${bam[o].title}</h3>
-            <p class="search__text">${bam[o].text}</p>
-            <p class="sort sort__places">${bam[o].type}</p>
-        </div>`;
-        o++;
-    })
-};
-request.send();

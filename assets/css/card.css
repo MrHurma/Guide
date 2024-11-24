@@ -47,6 +47,8 @@
   .card__text_show {
     display: flex;
     font-size: 14px;
+    margin: 0 2%;
+    font-family: MontserratItalic;
   }
 }
 .card__adress_box {

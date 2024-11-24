@@ -1,10 +1,14 @@
 .search{
-    padding-top: 100px;
     @media (max-width: 376px) {
         max-width: 375px;       
     }
     &__wrap{
         display: flex;
+        @media (max-width: 500px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
     &__sort{
         border: 1px solid #5252527c;
@@ -53,6 +57,9 @@
     &__img{
         width: 300px;
         border-radius: 10px;
+        @media (max-width: 500px) {
+            max-width: 200px;
+        }
         @media (max-width: 376px) {
             width: 150px;
         }
@@ -66,6 +73,9 @@
         border-radius: 10px;
         align-items: center;
         margin-bottom: 25px;
+        @media (max-width: 426px) {
+            display: flex;
+        }
         @media (max-width: 376px) {
             max-width: 200px;
             flex-direction: column;
