@@ -7,9 +7,23 @@
   justify-content: space-around;
   text-align: center;
 }
+@media (max-width: 770px) {
+  .contacts__wrap {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .contacts__box {
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 770px) {
+  .contacts__box {
+    margin-bottom: 20px;
+  }
+  .contacts__box:last-child {
+    margin-bottom: 0;
+  }
 }
 .contacts__text {
   transition: all 0.3s ease;
@@ -82,4 +96,4 @@
 }
 .modal__input:last-child {
   margin-bottom: 0;
-}/*# sourceMappingURL=contacts.css.map */
+}

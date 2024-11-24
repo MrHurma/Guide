@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
             setTimeout(function(){
                 preload.style.display = 'none';
                 boddy.style['overflow-y'] = 'visible';
-            }, 700);
-        }, 150);
+            }, 600);
+        }, 400);
     };
 });

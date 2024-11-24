@@ -96,33 +96,23 @@ document.getElementById('search').addEventListener('input', function() {
 });
 const gui = 'https://672cae281600dda5a9f974a0.mockapi.io/cards/';
 let request = new XMLHttpRequest();
-let titleSrch = document.querySelectorAll('.search__title');
-let textSrch = document.querySelectorAll('.search__text');
-let imgSrch = document.querySelectorAll('.search__img')
 request.open("GET", gui);
 request.responseType = "json";
 
 request.onload = function () {
     const bam = textContent = request.response;
     let o = 0;
-    titleSrch.forEach(titleSrch =>{
-        titleSrch.innerHTML = bam[o].title
-        o += 1
-    });
-    o = 0
-    textSrch.forEach(textSrch =>{
-        textSrch.innerHTML = bam[o].text
-        o += 1
-    });
-    o = 0
-    sort.forEach(sort =>{
-        sort.innerHTML = bam[o].type
-        o += 1
-    });
-    o = 0
-    imgSrch.forEach(imgSrch =>{
-        imgSrch.src = bam[o].img
-        o += 1
+    items.forEach((items) => {
+        items.innerHTML = `
+        <div class="search__img_box">
+            <img src="${bam[o].img}" alt="" class="search__img">
+        </div>
+        <div class="search__text_box">
+            <h3 class="search__title">${bam[o].title}</h3>
+            <p class="search__text">${bam[o].text}</p>
+            <p class="sort sort__places">${bam[o].type}</p>
+        </div>`;
+        o++;
     })
 };
 request.send();
