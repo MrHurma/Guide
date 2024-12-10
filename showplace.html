@@ -40,14 +40,49 @@
         <section class="search">
             <div class="search__wrap">
                 <div class="search__sort">
-                    <ul class="search__sort_list">
-                        <li class="search__sort_item search__sort_item-1">Парки</li>
-                        <li class="search__sort_item search__sort_item-2">Памятники</li>
-                        <li class="search__sort_item search__sort_item-3">Музеи</li>
-                        <li class="search__sort_item search__sort_item-4">Храмы</li>
-                        <li class="search__sort_item search__sort_item-5">Исторические места</li>
-                        <li class="search__sort_item search__sort_item-6">Очистить</li>
-                    </ul>
+                    <fieldset class="search__sort_list">
+                        <legend>Фильтры и сортировка</legend>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Park" id="Park" class="search__sort_input">
+                            <label for="Park" class="search__sort_label">Парки</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Monument" id="Monument" class="search__sort_input">
+                            <label for="Monument" class="search__sort_label">Памятники</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Museam" id="Museam" class="search__sort_input">
+                            <label for="Museam" class="search__sort_label">Музеи</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Hram" id="Hram" class="search__sort_input">
+                            <label for="Hram" class="search__sort_label">Храмы</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Place" id="Place" class="search__sort_input">
+                            <label for="Place" class="search__sort_label">Исторические места</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Popular" id="Popular" class="search__sort_input">
+                            <label for="Popular" class="search__sort_label">Более популярные</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="!Popular" id="!Popular" class="search__sort_input">
+                            <label for="!Popular" class="search__sort_label">Менее популярные</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Alphabet" id="Alphabet" class="search__sort_input">
+                            <label for="Alphabet" class="search__sort_label">По алфавиту</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Likes" id="Likes" class="search__sort_input">
+                            <label for="Likes" class="search__sort_label">По лайкам</label>
+                        </div>
+                        <div class="search__sort_box search__sort_item">
+                            <input type="checkbox" name="Clear" id="Clear" class="search__sort_input">
+                            <label for="Clear" class="search__sort_label">Очистить</label>
+                        </div>
+                    </fieldset>
                 </div>
                 <div class="search__search_box">
                     <div class="search__input">
@@ -59,22 +94,26 @@
                         <button id="next" class="pagination__btn">▶</button>
                     </div>
                     <div class="search__block">
-                        <div class="search__box" id="card_1">
-                        </div>
-                        <div class="search__box" id="card_2">
-                        </div>
-                        <div class="search__box" id="card_3">
-                        </div>
-                        <div class="search__box" id="card_4">
-                        </div>
-                        <div class="search__box" id="card_5">
-                        </div>
-                        <div class="search__box" id="card_6">
-                        </div>
-                        <div class="search__box" id="card_7">
-                        </div>
-                        <div class="search__box" id="card_8">
-                        </div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
+                        <div class="search__box"></div>
                     </div>
                 </div>
             </div>

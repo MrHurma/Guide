@@ -8,6 +8,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 preload.style.display = 'none';
                 boddy.style['overflow-y'] = 'visible';
             }, 600);
-        }, 400);
+        }, 500);
     };
 });

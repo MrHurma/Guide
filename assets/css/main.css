@@ -61,6 +61,10 @@ body {
   background: linear-gradient(0deg, rgba(247, 93, 139, 0.64), rgba(254, 220, 64, 0.67) 80%);
 }
 
+li {
+  list-style: none;
+}
+
 .main {
   max-width: 1140px;
   margin: 0 auto;
@@ -84,10 +88,6 @@ body {
   }
 }
 
-li {
-  list-style: none;
-}
-
 .header {
   max-width: 1700px;
   margin: 0 auto;
@@ -104,6 +104,15 @@ li {
     max-width: 900px;
     margin: 0 auto;
   }
+}
+.header__back {
+  padding: 30px;
+}
+.header__back_text {
+  font-size: 30px;
+}
+.header__back_text:hover {
+  cursor: pointer;
 }
 .header__nav {
   position: relative;

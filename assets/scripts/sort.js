@@ -1,30 +1,40 @@
+// 
+// fetch запрос для загрузки карточек
+// 
 const gui = 'https://672cae281600dda5a9f974a0.mockapi.io/cards/';
-let request = new XMLHttpRequest();
-request.open("GET", gui);
-request.responseType = "json";
 
-request.onload = function () {
-    const bam = textContent = request.response;
-    let o = 0;
-    items.forEach((items) => {
-        items.innerHTML = `
-        <div class="search__img_box">
-            <img src="${bam[o].img}" alt="" class="search__img">
-        </div>
-        <div class="search__text_box">
-            <h3 class="search__title">${bam[o].title}</h3>
-            <p class="search__text">${bam[o].text}</p>
-            <p class="sort">${bam[o].type}</p>
-        </div>`;
-        o++;
-    })
-};
-request.send();
+fetch(gui)
+    .then(response => {
+        if (!response.ok){
+            throw new Error('Ошибка при загрузке данных');
+        };
+        return response.json();
+    }) .then(bam => {
+        let o = 0
+        items.forEach(item =>{
+            item.innerHTML = `
+            <div class="search__img_box">
+                <img src="${bam[o].img}" alt="" class="search__img">
+            </div>
+            <div class="search__text_box">
+                <h3 class="search__title">${bam[o].title}</h3>
+                <p class="search__text">${bam[o].text}</p>
+                <p class="sort">${bam[o].type}</p>
+            </div>`;
+            o++;
+        });
+    }) .catch(error => {
+        console.log(`Ошибка fetch запроса: ${error}`) ;
+    });
+    
 
-const search = document.querySelectorAll('.search__sort_item')
-let sort = document.querySelectorAll('.sort')
+const search = document.querySelectorAll('.search__sort_item');
+let sort = document.querySelectorAll('.sort');
 
-const itemsPerPage = 4;
+// 
+// Пагинация
+// 
+const itemsPerPage = 10;
 const items = document.querySelectorAll('.search__box');
 const totalPages = Math.ceil(items.length / itemsPerPage);
 let currentPage = 1;
@@ -34,7 +44,7 @@ function showPage(page) {
     });
     updatePagination();
 }
-showPage(currentPage)
+showPage(currentPage);
 function updatePagination() {
     document.getElementById('page__numbers').innerHTML = '';
     for (let i = 1; i <= totalPages; i++) {
@@ -63,27 +73,40 @@ document.getElementById('next').addEventListener('click', () => {
         showPage(currentPage);
     }
 });
-sort = document.querySelectorAll('.sort')
-for(let i = 0; i < search.length; i++) {
-    search[i].addEventListener("click", function() {
-        const text = search[i].textContent;
-        items.forEach(card => {
-            card.style.display = 'none';
-        });
-        if (text === 'Очистить') {
-            items.forEach(card => {
-                card.style.display = 'flex';
-            });
+
+// 
+// Сортировка
+// 
+const sortInput = document.querySelectorAll('.search__sort_input');
+const sortBoxes = document.querySelectorAll('.search__box');
+sortInput.forEach(input => {
+    input.addEventListener('change', filterResults);
+});
+document.getElementById('Clear').addEventListener('click', () => {
+    const checkboxes = document.querySelectorAll('.search__sort_input');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    filterResults();
+});
+function filterResults() {
+    const selectedFilters = Array.from(sortInput)
+        .filter(input => input.checked)
+        .map(input => input.nextElementSibling.textContent);
+    console.log(selectedFilters)
+    sortBoxes.forEach(box => {
+        const boxText = box.querySelector('.sort').textContent;
+        if (selectedFilters.length === 0 || selectedFilters.includes(boxText)) {
+            box.style.display = 'flex';
         } else {
-            items.forEach(card => {
-                const sortText = card.querySelector('.sort').textContent;
-                if (sortText === text) {
-                    card.style.display = 'flex';
-                }
-            });
+            box.style.display = 'none';
         }
     });
-}
+};
+
+// 
+// Поиск
+// 
 document.getElementById('search').addEventListener('input', function() {
     const searchTerm = this.value.toLowerCase();
     const cards = document.querySelectorAll('.search__box');

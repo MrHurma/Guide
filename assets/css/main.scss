@@ -1,3 +1,6 @@
+// 
+// Добавление шрифтов
+// 
 @font-face {
     font-family: Montserrat;
     src: url(../fonts/Montserrat-Regular.ttf);
@@ -28,6 +31,10 @@
     src: url(../fonts/Montserrat-MediumItalic.ttf);
     font-weight: 500;
 }
+
+// 
+// Добавление анимаций
+// 
 @keyframes anim {
     0%{
         opacity: 0;
@@ -44,6 +51,10 @@
         transform: rotate(360deg);
     }
 }
+
+// 
+// Стилизация через тэги
+// 
 *{
     padding: 0;
     margin: 0;
@@ -58,6 +69,13 @@ body{
     overflow: hidden;
     background: linear-gradient(0deg, rgba(247, 93, 139, 0.64), rgba(254, 220, 64, 0.67) 80%);
 }
+li{
+    list-style: none;
+}
+
+// 
+// Стилизация main'а
+// 
 .main{
     max-width: 1140px;
     margin: 0 auto;
@@ -76,9 +94,10 @@ body{
         margin: 0 auto;
     }
 }
-li{
-    list-style: none;
-}
+
+// 
+// Стилизация header'а
+// 
 .header{
     max-width: 1700px;
     margin: 0 auto;
@@ -90,6 +109,15 @@ li{
     @media (max-width: 1025px) {
         max-width: 900px;
         margin: 0 auto;
+    }
+    &__back{
+        padding: 30px;
+        &_text{
+            font-size: 30px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
     &__nav{
         position: relative;
@@ -144,6 +172,10 @@ li{
         justify-content: space-between;
     }
 }
+
+// 
+// Стилизация бургер меню
+// 
 .burger{
     margin-right: 30px;
     transition: all .4s ease;
@@ -202,6 +234,10 @@ li{
         margin-bottom: 7px;
     }
 }
+
+// 
+// Стилизация слайдера
+// 
 .slider{
     padding-bottom: 100px;
     animation: anim 1s ease both;
@@ -305,6 +341,10 @@ li{
         cursor: default;
     }
 }
+
+// 
+// Стилизация основной части страницы
+// 
 .post{
     padding-bottom: 50px;
     @media (max-width: 770px) {
@@ -558,6 +598,10 @@ li{
         display: block;
     }
 }
+
+// 
+// Стилизация footer'а
+// 
 .footer{
     max-width: 80%;
     margin: auto;
@@ -660,6 +704,10 @@ li{
         }
     }
 }
+
+// 
+// Стилизация preloader'а
+// 
 #main_preloader{
     position: fixed;
     width: 100%;
