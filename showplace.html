@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ваш путеводитель по городу</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./assets/css/showplace.css">
     <link rel="stylesheet" href="./card.html">
 </head>
 <body class="body">
-    <div id="main_preloader">
+    <div id="preloader">
         <div class="loader"></div>
     </div>
     <header class="header">
@@ -71,16 +71,11 @@
                             <label for="!Popular" class="search__sort_label">Менее популярные</label>
                         </div>
                         <div class="search__sort_box search__sort_item">
-                            <input type="checkbox" name="Alphabet" id="Alphabet" class="search__sort_input">
-                            <label for="Alphabet" class="search__sort_label">По алфавиту</label>
-                        </div>
-                        <div class="search__sort_box search__sort_item">
                             <input type="checkbox" name="Likes" id="Likes" class="search__sort_input">
                             <label for="Likes" class="search__sort_label">По лайкам</label>
                         </div>
                         <div class="search__sort_box search__sort_item">
-                            <input type="checkbox" name="Clear" id="Clear" class="search__sort_input">
-                            <label for="Clear" class="search__sort_label">Очистить</label>
+                            <label for="Clear" class="search__sort_label" id="Clear">Очистить</label>
                         </div>
                     </fieldset>
                 </div>
@@ -93,28 +88,7 @@
                         <p id="page__numbers"></p>
                         <button id="next" class="pagination__btn">▶</button>
                     </div>
-                    <div class="search__block">
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                        <div class="search__box"></div>
-                    </div>
+                    <div class="search__block"></div>
                 </div>
             </div>
         </section>
@@ -153,8 +127,7 @@
         </div>
     </footer>
 </body>
-<script src="./assets/scripts/burger.js"></script>
+<script src="./mainSettings/all.js"></script>
 <script src="./assets/scripts/sort.js"></script>
-<script src="./assets/scripts/preloader.js"></script>
 <script src="./assets/scripts/card.js"></script>
 </html>

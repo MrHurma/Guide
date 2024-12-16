@@ -27,3 +27,21 @@ const burgerLog = document.querySelector('.burger__btn')
 burgerLog.addEventListener('click', () => {
     alert('Данная функция еще не добавлена извините')
 });
+
+// 
+// Реализация прелоадера
+// 
+const boddy = document.querySelector('.body');
+document.addEventListener('DOMContentLoaded', () => {
+    const preload = document.getElementById('preloader');
+    window.onload = () => {
+        setTimeout(() => {
+            preload.style.opacity = '0';
+            setTimeout(() => {
+                preload.style.display = 'none';
+                boddy.style['overflow-y'] = 'visible';
+            }, 600);
+        }, 500);
+    };
+});
+
