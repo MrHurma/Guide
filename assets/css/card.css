@@ -83,4 +83,80 @@
 
 .modal {
   display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.modal__block {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+}
+.modal__img {
+  max-width: 50%;
+  max-height: 800px;
+  width: 100%;
+  height: auto;
+}
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal__btn {
+  background-color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50%;
+}
+.comment__form {
+  display: flex;
+  flex-direction: column;
+}
+.comment__comment {
+  width: -moz-max-content;
+  width: max-content;
+  border: 2px solid rgba(82, 82, 82, 0.3137254902);
+  padding: 3px;
+}
+.comment__text {
+  font-family: "MontserratItalic";
+}
+.comment__name {
+  font-family: "MontserratItalic";
+}
+.comment__span {
+  font-size: 16px;
+  font-weight: 700;
+}
+.comment__form {
+  border-radius: 5px;
+  max-width: 60%;
+}
+.comment__description {
+  margin: 5px 0;
+  border-radius: 10px;
+  padding: 5px;
+  resize: none;
+  width: 100%;
 }
