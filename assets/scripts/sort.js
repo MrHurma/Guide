@@ -4,23 +4,40 @@
 const gui = 'https://672cae281600dda5a9f974a0.mockapi.io/cards/';
 const sortBoxesBlock = document.querySelector('.search__block');
 let currentFilters = [];
-async function loadCards() {
+const itemsPerPage = 10;
+let currentPage = 1;
+
+async function loadCards(page = 1) {
     try {
         const response = await fetch(gui);
         if (!response.ok) {
             throw new Error('Ошибка при загрузке данных');
         }
-        const bam = await response.json();
-        displayCards(bam);
-        Pagination(bam);
+        const allCards = await response.json();
+        const totalPages = Math.ceil(allCards.length / itemsPerPage);
+        const filteredCards = allCards.filter(card => {
+            return currentFilters.length === 0 || currentFilters.includes(card.type);
+        });
+        const popularCheckbox = document.getElementById('Popular');
+        const lessPopularCheckbox = document.getElementById('!Popular');
+
+        if (popularCheckbox.checked) {
+            filteredCards.sort((a, b) => b.populary - a.populary);
+        } else if (lessPopularCheckbox.checked) {
+            filteredCards.sort((a, b) => a.populary - b.populary);
+        }
+        const startIndex = (page - 1) * itemsPerPage;
+        const paginatedCards = filteredCards.slice(startIndex, startIndex + itemsPerPage);
+        displayCards(paginatedCards, filteredCards);
+        Pagination(filteredCards.length, totalPages);
     } catch (error) {
         console.error(`Ошибка fetch запроса: ${error}`);
     }
 }
 
-function displayCards(cards) {
+function displayCards(cards, allFilteredCards) {
     sortBoxesBlock.innerHTML = '';
-    cards.forEach(card => {
+    cards.forEach((card, index) => {
         const box = document.createElement('div');
         box.classList.add('search__box');
         box.innerHTML = `
@@ -33,78 +50,71 @@ function displayCards(cards) {
                 <p class="sort">${card.type}</p>
             </div>`;
         sortBoxesBlock.appendChild(box);
+        const globalIndex = (currentPage - 1) * itemsPerPage + index;
+        box.addEventListener('click', async () => {
+            try {
+                const updatedCard = {...card, populary: card.populary + 1};
+                const response = await fetch(`${gui}${card.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedCard),
+                });
+                if (!response.ok) {
+                    throw new Error('Ошибка при обновлении популярности');
+                }
+                window.location.href = `./card.html?id=${globalIndex}`;
+            } catch (error) {
+                console.error(`Ошибка при обновлении популярности: ${error}`);
+            }
+        });
     });
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     loadCards();
-    setupSorting();
-    setupSearch();
+    Sorting();
+    Search();
 });
 
 // 
 // Пагинация
 // 
-function Pagination(cards) {
-    const itemsPerPage = 10;
-    let currentPage = 1;
-    function showPage(page) {
-        const totalPages = Math.ceil(cards.length / itemsPerPage);
-        const startIndex = (page - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        sortBoxesBlock.querySelectorAll('.search__box').forEach(item => {
-            item.style.display = 'none';
+function Pagination(totalItems, totalPages) {
+    const pageNumbersContainer = document.getElementById('page__numbers');
+    pageNumbersContainer.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+        const pageNum = document.createElement('span');
+        pageNum.textContent = i;
+        pageNum.classList.add('page__num');
+        pageNum.style.cursor = 'pointer';
+        pageNum.addEventListener('click', () => {
+            currentPage = i;
+            loadCards(currentPage);
         });
-        cards.slice(startIndex, endIndex).forEach(item => {
-            const box = document.createElement('div');
-            box.classList.add('search__box');
-            box.innerHTML = `
-                <div class="search__img_box">
-                    <img src="${item.img}" alt="" class="search__img">
-                </div>
-                <div class="search__text_box">
-                    <h3 class="search__title">${item.title}</h3>
-                    <p class="search__text">${item.text}</p>
-                    <p class="sort">${item.type}</p>
-                </div>`;
-            sortBoxesBlock.appendChild(box);
-        });
-        updatePagination(totalPages);
+        pageNumbersContainer.appendChild(pageNum);
     }
-    function updatePagination(totalPages) {
-        document.getElementById('page__numbers').innerHTML = '';
-        for (let i = 1; i <= totalPages; i++) {
-            const pageNum = document.createElement('span');
-            pageNum.textContent = i;
-            pageNum.classList.add('page__num');
-            pageNum.style.cursor = 'pointer';
-            pageNum.addEventListener('click', () => {
-                currentPage = i;
-                showPage(currentPage);
-            });
-            document.getElementById('page__numbers').appendChild(pageNum);
-        }
-        document.getElementById('prev').disabled = currentPage === 1;
-        document.getElementById('next').disabled = currentPage === totalPages;
-    }
+    document.getElementById('prev').disabled = currentPage === 1;
+    document.getElementById('next').disabled = currentPage === totalPages;
     document.getElementById('prev').addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage -= 1;
-            showPage(currentPage);
+            loadCards(currentPage);
         }
     });
     document.getElementById('next').addEventListener('click', () => {
-        if (currentPage < Math.ceil(cards.length / itemsPerPage)) {
+        if (currentPage < totalPages) {
             currentPage += 1;
-            showPage(currentPage);
+            loadCards(currentPage);
         }
     });
-    showPage(currentPage);
 }
 
 // 
 // Сортировка
 // 
-function setupSorting() {
+function Sorting() {
     const sortInput = document.querySelectorAll('.search__sort_input');
     sortInput.forEach(input => {
         input.addEventListener('change', filterResults);
@@ -121,38 +131,31 @@ function setupSorting() {
         currentFilters = Array.from(sortInput)
             .filter(input => input.checked)
             .map(input => input.nextElementSibling.textContent);
-
-        const response = await fetch(gui);
-        const allData = await response.json();
-        const filteredData = allData.filter(item => {
-            return currentFilters.length === 0 || currentFilters.includes(item.type);
-        });
-        displayCards(filteredData);
-        Pagination(filteredData);
+        loadCards(1);
     }
 }
 
 // 
 // Поиск
 // 
-function setupSearch() {
+function Search() {
     document.getElementById('search').addEventListener('input', async function() {
         const searchTerm = this.value.toLowerCase();
         const response = await fetch(gui);
-        const cards = await response.json();
-        const filteredCards = cards.filter(card => {
+        const allCards = await response.json();
+        const filteredCards = allCards.filter(card => {
             const title = card.title.toLowerCase();
             const matchesSearch = title.includes(searchTerm);
             const matchesFilter = currentFilters.length === 0 || currentFilters.includes(card.type);
             return matchesSearch && matchesFilter;
         });
         displayCards(filteredCards);
-        Pagination(filteredCards);
+        Pagination(filteredCards.length, Math.ceil(filteredCards.length / itemsPerPage));
     });
 }
 
 // 
-// Загрузка карточек
+// Инициализация загрузки карточек
 // 
 document.addEventListener('DOMContentLoaded', () => {
     loadCards();

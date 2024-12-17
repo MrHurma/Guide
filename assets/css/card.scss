@@ -1,6 +1,7 @@
 .card{
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding-bottom: 100px;
     &__img_block{
         display: flex;
@@ -25,6 +26,10 @@
         @media (max-width: 500px) {
             font-size: 20px;
         }
+    }
+    &__like{
+        font-size: 22px;
+        color: black;
     }
     &__text{
         line-height: 1.5;
@@ -63,4 +68,7 @@
         }
     }
 
+}
+.modal{
+    display: none;
 }
